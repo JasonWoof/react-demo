@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>React Demo</title>
+        <style>
+            html {
+                margin: 0;
+                padding: 0;
+                overflow-y: scroll;
+            }
+            body {
+                max-width: 700px;
+                margin: 0 auto;
+                padding: 2vmin;
+            }
+            .spinner, #loadingSpinner{
+                position: absolute;
+                top: calc(50% - 14px);
+                left: calc(50% - 14px);
+                width: 20px;
+                height: 20px;
+                border: 4px solid #fc0;
+                border-bottom-color: rgba(255, 255, 255, 0);
+                border-radius: 50%;
+                animation: spin 1s linear infinite;
+            }
+            @keyframes spin {to {transform: rotate(360deg);}}
+
+            /* big gaps between children, small gaps between grandchildren */
+            .sections > *, .sections > * > * {
+                margin: 0;
+            }
+            .sections {
+                display: grid;
+                grid-gap: 30px;
+            }
+            .sections > * {
+                display: grid;
+                grid-gap: 8px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="loadingSpinner" class="spinner"></div>
+
+        <div id="reactOuter"></div>
+
+        <script src="react.production.min.js" crossorigin></script>
+        <script src="react-dom.production.min.js" crossorigin></script>
+
+        <script src="demo_compiled.js"></script>
+    </body>
+</html>
+
