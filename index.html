@@ -28,17 +28,47 @@
             }
             @keyframes spin {to {transform: rotate(360deg);}}
 
-            /* big gaps between children, small gaps between grandchildren */
-            .sections > *, .sections > * > * {
+            .bigGaps > *, .littleGaps > * {
                 margin: 0;
             }
-            .sections {
+            .bigGaps {
                 display: grid;
                 grid-gap: 30px;
             }
-            .sections > * {
+            .littleGaps {
                 display: grid;
                 grid-gap: 8px;
+            }
+
+            .choices {
+                display: inline-grid;
+                grid-gap: 6px;
+            }
+
+            .button {
+                background-color: #ddd;
+            }
+            .button-selected {
+                background-color: #bbb;
+            }
+
+            .layout-tiles {
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+            @media screen and (max-width: 600px) {
+                .layout-tiles {
+                    grid-template-columns: 1fr 1fr;
+                }
+            }
+            @media screen and (max-width: 450px) {
+                .layout-tiles {
+                    grid-template-columns: 1fr;
+                }
+            }
+            .layout-table {
+                grid-template-columns: auto auto auto auto auto auto;
+                width: 100%;
+                grid-gap: 15px;
             }
         </style>
     </head>

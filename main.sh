@@ -32,5 +32,5 @@ if [ ! -f .initialized ]; then
     touch .initialized
 fi
 
-#run_maybe_in_docker npx babel --watch src --out-dir . --presets react-app/prod
 run_maybe_in_docker npx babel src/demo.js --out-file demo_compiled.js --presets react-app/prod
+#run_maybe_in_docker npx babel --watch src/demo.js --out-file demo_compiled.js --presets react-app/prod
