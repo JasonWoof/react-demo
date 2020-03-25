@@ -1,5 +1,4 @@
-.initialized
-demo_compiled.js
-node_modules/
-package-lock.json
-package.json
+/.initialized
+/node_modules/
+/package-lock.json
+/index.html

@@ -1,9 +1,7 @@
 'use strict';
 
-const e = React.createElement;
-
 const Spinner = () => (
-    <div id="loading_spinner" className="spinner" />
+    <div className="spinner" />
 );
 
 // simplified "day of the year": there's gaps, but it sorts correctly
@@ -25,7 +23,9 @@ const annotateSortDirection = (choices, chosen, reverse) => {
         }
     )
 }
+
 const LocaleDate = (props) => new Date(props.date).toLocaleDateString();
+
 const Birthday = (props) => {
     const nowOrd = dateToDayOrd(new Date());
     const dateOrd = dateToDayOrd(new Date(props.date));
@@ -51,6 +51,7 @@ const MultipleChoice = (props) => (
 );
 
 const Field = (props) => <div className="field">{props.caption}: {props.child}</div>
+
 const Person = (props) => {
     return (
         <div className="littleGaps">
@@ -63,6 +64,7 @@ const Person = (props) => {
         </div>
     );
 };
+
 const People = (props) => {
     const people = props.people.slice();
     let sorter;
@@ -104,11 +106,13 @@ const People = (props) => {
         </div>
     );
 }
+
 class Main extends React.Component {
     constructor (props) {
         super(props);
         this.state = { state: 'loading', sort: 'name', reverse: 0, layout: 'tiles' };
     }
+
     handleSortClick = (sort) => {
         this.setState((old) => {
             if (old.sort === sort) {
@@ -118,6 +122,7 @@ class Main extends React.Component {
             }
         });
     }
+
     render () {
         if (this.state.state === 'loading') {
             return <Spinner />
@@ -153,6 +158,7 @@ class Main extends React.Component {
             );
         }
     }
+
     componentDidMount () {
         fetch('https://randomuser.me/api/?results=20&nat=us,ca&inc=gender,name,location,dob,picture'
         ).then(
@@ -170,6 +176,7 @@ class Main extends React.Component {
         )
     }
 }
+
 const Outer = () => (
     <div className="bigGaps">
         <div className="littleGaps">
@@ -186,5 +193,5 @@ const Outer = () => (
 
 const loadingSpinner = document.querySelector('#loadingSpinner');
 loadingSpinner.parentNode.removeChild(loadingSpinner);
-const domContainer = document.querySelector('#reactOuter');
-ReactDOM.render(e(Outer), domContainer);
+
+ReactDOM.render(React.createElement(Outer), document.querySelector('#reactOuter'));

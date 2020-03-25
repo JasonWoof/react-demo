@@ -1,0 +1,11 @@
+{
+  "devDependencies": {
+    "gulp": "latest",
+    "gulp-htmlmin": "latest",
+    "gulp-inline-source": "latest",
+    "@babel/core": "latest",
+    "@babel/plugin-proposal-class-properties": "latest",
+    "@babel/preset-react": "latest",
+    "@babel/preset-env": "latest"
+  }
+}
